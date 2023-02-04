@@ -7,7 +7,7 @@ try {
 
     // Fetching only hot 100 Ug songs
     app.get(`/api/hotSongs`,(req, res) => {
-        res.writeHead(200, { 'Content-Type': 'application/json' });
+        // res.writeHead(200, { 'Content-Type': 'application/json' });
         res.json(hot100songs);
         res.end();
     });

@@ -41,7 +41,7 @@ export const searchAllSongs = (query) => {
             var trackList = ch('.container a');
        trackList.map((index,track) => {
            var element = track;
-        var more = (`${element.children[0].children[1].attribs.style}`).replace("background-image:","");
+        // var more = (`${element.children[0].children[1].attribs.style}`).replace("background-image:","");
             let sourceFile;
             get(`https://www.nowviba.com/music/pages/${element.attribs.href}`).then((response)=>{
                 var detail = response.data;
@@ -49,9 +49,9 @@ export const searchAllSongs = (query) => {
                sourceFile =  ch('.dwnTkNt').attr().href;
         });
         var stream = {
-            title: element.children[0].children[3].children[1].children[0].data,
-            artist:element.children[0].children[3].children[3].children[0].data,
-           coverArt:more.replace('url(',"").replace(");",""),
+            // title: element.children[0].children[3].children[1].children[0].data,
+            // artist:element.children[0].children[2].children[3].children[0].data,
+        //    coverArt:more.replace('url(',"").replace(");",""),
             url:sourceFile,
           };
           songContainer = [...songContainer, stream];
