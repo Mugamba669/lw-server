@@ -21,7 +21,6 @@ try {
 
     // search songs from all Ugandan songs by title or artist
     app.get('/api/searchAll/:queryList',(req,res)=>{
-      req.params;
       res.json(searchAllSongs(req.params.queryList));
       res.end();
     });
