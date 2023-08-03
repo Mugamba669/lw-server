@@ -14,7 +14,6 @@ try {
 
     // search from hot100 songs
     app.get('/api/searchHot/:query',(req,res)=>{
-    
       res.json(searchHot100Track(req.params.query));
       res.end();
     })
