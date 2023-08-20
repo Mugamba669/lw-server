@@ -1,10 +1,9 @@
-const Axios = require("axios");
+const axios = require('axios');
 const { load } = require("cheerio");
 
-let songContainer = [];
 const fetchHot100 = async () => {
     let songs = [];
-    await Axios.get(`https://www.nowviba.com/music/pages/top100.php`).then((domResponse) => {
+    await axios.get(`https://www.nowviba.com/music/pages/top100.php`).then((domResponse) => {
         let response = domResponse.data;
         const ch = load(response);
         let trackList = ch('.hot100');
@@ -22,7 +21,7 @@ const fetchHot100 = async () => {
     hot100songs = songs;
     return songs;
 }
-module.exports = { fetchHot100 };
+
 const fetchNewSongs = async () => {
     let songs = [];
     await get(`https://www.nowviba.com/music/pages/newhot.php`).then((domResponse) => {
@@ -42,9 +41,6 @@ const fetchNewSongs = async () => {
     })
     // hot100songs = songs;
     // return songs;
-}
-module.exports = {
-    fetchNewSongs
 }
 
 /**
@@ -87,3 +83,4 @@ module.exports = {
 //     });
 //     return searchAllSongs;
 // }
+export default fetchHot100;
