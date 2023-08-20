@@ -1,5 +1,5 @@
-import express from 'express';
-import { fetchNewSongs, searchHot100Track, searchAllSongs, fetchHot100 } from './core/Streams.mjs';
+const express = require('express');
+const { fetchHot100 } = require('./core/Streams.js');
 
 try {
   const app = express();
