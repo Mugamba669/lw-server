@@ -3,7 +3,7 @@ const axios = require('axios');
 const { load } = require("cheerio");
 
 const app = express()
-app.get('/', async (req, res) => {
+app.get('/hotSongs', async (req, res) => {
   const fetchHot100 = async () => {
     let songs = [];
     await axios.get(`https://www.nowviba.com/music/pages/top100.php`).then((domResponse) => {
