@@ -1,22 +1,7 @@
-// index.js
 const express = require('express')
-
-
 const app = express()
-
-const PORT = 5054;
-
-app.listen(PORT, () => {
-  console.log(`API listening on PORT ${PORT} `)
+app.all('/', (req, res) => {
+  console.log("Just got a request!")
+  res.send('Yo!')
 })
-
-app.get('/', (req, res) => {
-  res.send('Hey this is my API running 🥳')
-})
-
-app.get('/about', (req, res) => {
-  res.send('This is my about route..... ')
-})
-
-// Export the Express API
-module.exports = app
+app.listen(process.env.PORT || 5054)
