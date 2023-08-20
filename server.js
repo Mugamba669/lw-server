@@ -1,43 +1,20 @@
-const express = require('express');
-// const { fetchHot100 } = require('./core/Streams.js');
-const app = express();
-app.listen(process.env.PORT || 5054, () => {
-  console.log(`Server running at http://localhost:${process.env.PORT || 5054} `)
-});
+// index.js
+const express = require('express')
 
-// Fetching only hot 100 Ug songs
+const app = express()
+const PORT = 4000
+
+app.listen(PORT, () => {
+  console.log(`API listening on PORT ${PORT} `)
+})
+
 app.get('/', (req, res) => {
-  // console.log(`Requesting at http://localhost:${process.env.PORT || 5054}/api/hotSongs `);
-  try {
-    res.send("Hello World")
+  res.send('Hey this is my API running 🥳')
+})
 
-  } catch (e) {
-    res.send(e).status(400);
-  }
+app.get('/about', (req, res) => {
+  res.send('This is my about route..... ')
+})
 
-  res.end();
-
-});
-// // fetch new songs
-// app.get("/api/newSongs", async (req, res) => {
-//   console.log(`Requesting at http://localhost:${process.env.PORT || 5054}/api/hotSongs `);
-//   await fetchNewSongs();
-//   res.json({ "response": "200" });
-//   console.log("Done fetching")
-//   res.end();
-// })
-// search from hot100 songs
-// app.get('/api/searchHot/:query', (req, res) => {
-//   res.json(searchHot100Track(req.params.query));
-//   res.end();
-// })
-
-// // // search songs from all Ugandan songs by title or artist
-// app.get('/api/searchAll/:queryList', (req, res) => {
-//   res.json(searchAllSongs(req.params.queryList));
-//   res.end();
-// });
-
-
-
-module.exports = app;
+// Export the Express API
+module.exports = app
